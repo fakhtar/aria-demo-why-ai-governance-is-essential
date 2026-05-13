@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "description": "Meridian Commerce supplier records — active vendors for home office furniture category",
+    "generated_for": "Supplier Intelligence Tool — Demo 2"
+  },
+
+  "suppliers": {
+    "SUP-0041": {
+      "supplier_id": "SUP-0041",
+      "name": "Crestwood Furniture Manufacturing",
+      "country": "Vietnam",
+      "city": "Ho Chi Minh City",
+      "relationship_since": "2018",
+      "relationship_manager": "Patricia Holloway",
+      "relationship_manager_email": "p.holloway@meridiancommerce.com",
+      "contract_status": "Active",
+      "contract_expiry": "2025-06-30",
+      "contract_value_annual": 2400000.00,
+      "payment_terms": "Net 45",
+      "skus_supplied": [
+        "MD-4821-WN",
+        "MD-4821-BK",
+        "MD-4821-OAK",
+        "MD-3200-WN",
+        "MD-3200-BK"
+      ],
+      "performance": {
+        "on_time_delivery_rate": 0.94,
+        "defect_rate_current": 0.031,
+        "defect_rate_historical_avg": 0.008,
+        "defect_rate_trend": "INCREASING — current rate is 3.9x historical average",
+        "last_audit_date": "2024-06-15",
+        "last_audit_result": "Passed — minor observations noted",
+        "next_audit_scheduled": "2025-06-01"
+      },
+      "quality_incidents": [
+        {
+          "incident_id": "QI-2024-017",
+          "date": "2024-06-22",
+          "sku": "MD-4821-WN",
+          "description": "Batch of 40 units reported with hairline fractures in support leg assembly. Attributed to change in leg joint adhesive formula. Supplier switched adhesive supplier in Q2 2024.",
+          "units_affected": 40,
+          "financial_impact": 15560.00,
+          "resolution": "Supplier issued credit note. Adhesive formula rolled back.",
+          "escalated_to_leadership": false,
+          "notes": "Logged by warehouse QC team. Not escalated to procurement or supplier relationship manager. Closed internally."
+        },
+        {
+          "incident_id": "QI-2024-031",
+          "date": "2024-09-14",
+          "sku": "MD-4821-WN",
+          "description": "11 units returned by customers within 30 days of purchase for cracked or unstable leg assembly. Pattern not identified at intake — returns processed individually as isolated incidents.",
+          "units_affected": 11,
+          "financial_impact": 4279.00,
+          "resolution": "Individual refunds processed. No supplier notification sent.",
+          "escalated_to_leadership": false,
+          "notes": "Returns team processed individually. No cross-referencing with QI-2024-017. Pattern not recognised. No action taken with supplier."
+        }
+      ],
+      "open_purchase_orders": [
+        {
+          "po_id": "PO-2024-8821",
+          "sku": "MD-4821-WN",
+          "units_ordered": 200,
+          "order_date": "2024-12-01",
+          "expected_delivery": "2025-01-15",
+          "value": 37800.00,
+          "status": "In Production",
+          "notes": "Standard reorder. Placed before current damage pattern identified."
+        }
+      ],
+      "recommendation": "URGENT REVIEW REQUIRED. Current damage pattern in Southwest region is consistent with QI-2024-017 adhesive issue from June 2024. Prior incident was not escalated. A second batch of 200 units is currently in production (PO-2024-8821, delivery January 2025). If root cause is unresolved at supplier level, incoming stock will perpetuate the damage pattern. Recommend: (1) immediate hold on PO-2024-8821 pending quality confirmation, (2) formal supplier quality review with Crestwood, (3) escalation to Patricia Holloway and procurement leadership."
+    }
+  }
+}

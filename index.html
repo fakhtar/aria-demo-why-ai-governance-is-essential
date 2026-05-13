@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ARIA — Meridian Commerce</title>
+  <title>ARIA — Meridian Commerce | Capability Governance Demo</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Nunito:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -19,6 +19,9 @@
       --red:        #e05c5c;
       --border:     rgba(201,168,76,0.18);
       --shadow:     0 4px 32px rgba(0,0,0,0.45);
+      --amber:      #e8933a;
+      --amber-dim:  #8a5520;
+      --amber-glow: rgba(232,147,58,0.15);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -687,7 +690,7 @@
     <div class="brand-mark">MC</div>
     <div>
       <div class="brand-name">Meridian Commerce</div>
-      <div class="brand-sub">Internal Operations</div>
+      <div class="brand-sub">Capability Governance — Demo 2</div>
     </div>
   </div>
   <div class="header-right">
@@ -722,37 +725,93 @@
     <div class="sidebar-section" style="flex:1">
       <div class="sidebar-label">MCP Tool Access</div>
 
-      <div class="tool-item" id="tool-item-1">
+      <!-- MOVEMENT 1: Resolution (pre-loaded) -->
+      <div style="font-family:'Share Tech Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--green);text-transform:uppercase;margin-bottom:0.5rem;padding:0.25rem 0;border-bottom:1px solid rgba(76,175,130,0.2);">▸ Movement I — Resolution</div>
+
+      <div class="tool-item active" id="tool-item-1">
         <div class="tool-info">
           <div class="tool-name">Customer Intelligence</div>
           <div class="tool-desc">CRM profile, lifetime value, order history, complaint record</div>
         </div>
         <label class="toggle">
-          <input type="checkbox" id="tool1" onchange="handleToolToggle(1, this.checked)" />
+          <input type="checkbox" id="tool1" checked onchange="handleToolToggle(1, this.checked)" />
           <div class="toggle-track"></div>
           <div class="toggle-thumb"></div>
         </label>
       </div>
 
-      <div class="tool-item" id="tool-item-2">
+      <div class="tool-item active" id="tool-item-2">
         <div class="tool-info">
           <div class="tool-name">Order & Ticket Access</div>
           <div class="tool-desc">Order status, carrier notes, support tickets, agent queue</div>
         </div>
         <label class="toggle">
-          <input type="checkbox" id="tool2" onchange="handleToolToggle(2, this.checked)" />
+          <input type="checkbox" id="tool2" checked onchange="handleToolToggle(2, this.checked)" />
           <div class="toggle-track"></div>
           <div class="toggle-thumb"></div>
         </label>
       </div>
 
-      <div class="tool-item" id="tool-item-3">
+      <div class="tool-item active" id="tool-item-3">
         <div class="tool-info">
-          <div class="tool-name">Resolution Engine</div>
-          <div class="tool-desc">Inventory levels, shipping options, credit policy, action execution</div>
+          <div class="tool-name">Inventory & Shipping</div>
+          <div class="tool-desc">Stock levels, shipping options, credit policy</div>
         </div>
         <label class="toggle">
-          <input type="checkbox" id="tool3" onchange="handleToolToggle(3, this.checked)" />
+          <input type="checkbox" id="tool3" checked onchange="handleToolToggle(3, this.checked)" />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+
+
+
+      <!-- MOVEMENT 2: Transformation -->
+      <div style="font-family:'Share Tech Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--amber);text-transform:uppercase;margin:0.75rem 0 0.5rem;padding:0.25rem 0;border-bottom:1px solid rgba(232,147,58,0.2);">▸ Movement II — Transformation</div>
+
+      <div class="tool-item" id="tool-item-5">
+        <div class="tool-info">
+          <div class="tool-name">Pattern Intelligence</div>
+          <div class="tool-desc">Cross-customer order history, damage patterns, regional analysis</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="tool5" onchange="handleToolToggle(5, this.checked)" />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+
+      <div class="tool-item" id="tool-item-6">
+        <div class="tool-info">
+          <div class="tool-name">Supplier Intelligence</div>
+          <div class="tool-desc">Vendor quality records, incident history, open purchase orders</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="tool6" onchange="handleToolToggle(6, this.checked)" />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+
+      <div class="tool-item" id="tool-item-7">
+        <div class="tool-info">
+          <div class="tool-name">Logistics Intelligence</div>
+          <div class="tool-desc">Carrier performance, routing data, facility incident tracking</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="tool7" onchange="handleToolToggle(7, this.checked)" />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+
+      <div class="tool-item" id="tool-item-8">
+        <div class="tool-info">
+          <div class="tool-name">Financial Impact</div>
+          <div class="tool-desc">Margin model, LTV exposure, resolution cost scenarios</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="tool8" onchange="handleToolToggle(8, this.checked)" />
           <div class="toggle-track"></div>
           <div class="toggle-thumb"></div>
         </label>
@@ -763,7 +822,7 @@
     <!-- Tool count -->
     <div class="tool-count">
       <span class="tool-count-label">ACTIVE TOOLS</span>
-      <span class="tool-count-value" id="toolCountValue">0 / 3</span>
+      <span class="tool-count-value" id="toolCountValue">3 / 7</span>
     </div>
 
   </aside>
@@ -792,10 +851,10 @@
     <!-- Input -->
     <div class="input-area">
       <div class="suggested-prompts" id="suggestedPrompts">
-        <button class="prompt-chip" onclick="usePrompt('customerEmail')">📧 Paste David's email</button>
-        <button class="prompt-chip" onclick="usePrompt('whoIsCustomer')">Who is this customer?</button>
-        <button class="prompt-chip" onclick="usePrompt('whatHappened')">What happened to his order?</button>
-        <button class="prompt-chip" onclick="usePrompt('resolveThis')">Resolve this. Use your judgment.</button>
+        <button class="prompt-chip" onclick="usePrompt('customerEmail')">📧 David's complaint</button>
+        <button class="prompt-chip" onclick="usePrompt('resolveThis')">Resolve David. Use your judgment.</button>
+        <button class="prompt-chip" onclick="usePrompt('lookDeeper')">Look deeper. What else do you see?</button>
+        <button class="prompt-chip" onclick="usePrompt('boardroom')">Prepare the executive briefing.</button>
       </div>
       <div class="input-row">
         <textarea
@@ -820,21 +879,25 @@
 <script>
 // ── STATE ──────────────────────────────────────────────────────────────
 let conversationHistory = [];
-let activeTools = new Set();
+let activeTools = new Set([1, 2, 3]);
 let isLoading = false;
 let syntheticData = {};
 
 // ── SYNTHETIC DATA ─────────────────────────────────────────────────────
 async function loadData() {
   try {
-    const [customers, orders, tickets, inventory] = await Promise.all([
+    const [customers, orders, tickets, inventory, allOrders, suppliers, logistics, financials] = await Promise.all([
       fetch('data/customers.json').then(r => r.json()),
       fetch('data/orders.json').then(r => r.json()),
       fetch('data/tickets.json').then(r => r.json()),
       fetch('data/inventory.json').then(r => r.json()),
+      fetch('data/all-orders.json').then(r => r.json()),
+      fetch('data/suppliers.json').then(r => r.json()),
+      fetch('data/logistics.json').then(r => r.json()),
+      fetch('data/financials.json').then(r => r.json()),
     ]);
-    syntheticData = { customers, orders, tickets, inventory };
-    console.log('✅ Synthetic data loaded');
+    syntheticData = { customers, orders, tickets, inventory, allOrders, suppliers, logistics, financials };
+    console.log('✅ All synthetic data loaded — Demo 2 ready');
   } catch (e) {
     console.warn('⚠️ Could not load data files. Run: python -m http.server 8000');
   }
@@ -893,6 +956,58 @@ const TOOL_DEFINITIONS = {
         }
       },
       required: ["customer_id", "order_id", "send_replacement"]
+    }
+  },
+  5: {
+    name: "query_damage_pattern",
+    description: "Search across all Meridian Commerce orders to identify patterns — specifically damage complaints for the same SKU, warehouse, carrier, or region within a defined time window. Use this proactively when you have identified a potential systemic issue. Do not wait to be asked. If you see a pattern forming, look for it.",
+    input_schema: {
+      type: "object",
+      properties: {
+        sku: { type: "string", description: "Product SKU to search for (e.g. MD-4821-WN)" },
+        warehouse: { type: "string", description: "Warehouse to filter by (e.g. Phoenix)" },
+        days: { type: "number", description: "Number of days to look back" },
+        complaint_type: { type: "string", description: "Type of complaint to filter for (e.g. damage, cracked, defective)" }
+      },
+      required: ["sku"]
+    }
+  },
+  6: {
+    name: "lookup_supplier",
+    description: "Retrieve supplier quality records, incident history, contract status, and open purchase orders for a given SKU or supplier. Use when a damage pattern suggests a manufacturing or quality issue at the supplier level.",
+    input_schema: {
+      type: "object",
+      properties: {
+        sku: { type: "string", description: "Product SKU to find supplier for" },
+        supplier_id: { type: "string", description: "Supplier ID if known" }
+      },
+      required: ["sku"]
+    }
+  },
+  7: {
+    name: "lookup_logistics",
+    description: "Retrieve carrier performance data, regional incident tracking, routing recommendations, and facility change records. Use when a damage pattern suggests a carrier or logistics issue. Look for facility changes, damage rate trends, and alternative routing options.",
+    input_schema: {
+      type: "object",
+      properties: {
+        carrier: { type: "string", description: "Carrier name (e.g. FastShip)" },
+        region: { type: "string", description: "Region to analyse (e.g. Southwest)" },
+        warehouse: { type: "string", description: "Originating warehouse" }
+      },
+      required: ["carrier"]
+    }
+  },
+  8: {
+    name: "calculate_financial_impact",
+    description: "Calculate total financial exposure from a damage or quality incident. Returns unit economics, customer lifetime value at risk, scenario modelling across best/mid/worst case outcomes, and an executive summary with key decisions required. Use when you have enough pattern data to model the business impact.",
+    input_schema: {
+      type: "object",
+      properties: {
+        sku: { type: "string", description: "Product SKU" },
+        incident_type: { type: "string", description: "Type of incident (e.g. delivery damage, quality defect)" },
+        affected_customer_count: { type: "number", description: "Number of confirmed affected customers" }
+      },
+      required: ["sku", "incident_type"]
     }
   }
 };
@@ -1005,6 +1120,110 @@ function executeToolCall(toolName, toolInput) {
       };
     }
 
+    case 'query_damage_pattern': {
+      const allOrders = syntheticData.allOrders || {};
+      const pattern = allOrders.pattern_summary || {};
+      const orders = allOrders.orders || {};
+      const unresolved = allOrders.unresolved_tickets || {};
+
+      const affected = Object.values(orders).filter(o =>
+        (!toolInput.sku || o.sku === toolInput.sku) &&
+        (!toolInput.warehouse || o.fulfillment?.warehouse === toolInput.warehouse)
+      );
+
+      return {
+        found: true,
+        sku: toolInput.sku,
+        warehouse_searched: toolInput.warehouse || 'All',
+        pattern_summary: pattern,
+        affected_orders: affected.map(o => ({
+          order_id: o.order_id,
+          customer_name: o.customer_name,
+          order_date: o.order_date,
+          warehouse: o.fulfillment?.warehouse,
+          carrier: o.fulfillment?.carrier,
+          status: o.resolution_status,
+          issue: o.customer_reported_issue,
+          tickets: o.tickets || []
+        })),
+        unresolved_tickets: Object.values(unresolved),
+        total_affected: affected.length,
+        total_ltv_at_risk: pattern.total_ltv_at_risk || 0,
+        ltv_already_lost: pattern.total_ltv_already_lost || 0,
+        in_transit_at_risk: pattern.in_transit_at_risk || 0,
+        recommendation: "Pattern identified. Recommend immediate supplier and carrier investigation. Proactive outreach to unresolved customers required today."
+      };
+    }
+
+    case 'lookup_supplier': {
+      const suppliers = syntheticData.suppliers?.suppliers || {};
+      // Find supplier by SKU
+      for (const [id, supplier] of Object.entries(suppliers)) {
+        if (!toolInput.sku || supplier.skus_supplied?.includes(toolInput.sku) ||
+            (toolInput.supplier_id && id === toolInput.supplier_id)) {
+          return {
+            found: true,
+            supplier_id: id,
+            name: supplier.name,
+            country: supplier.country,
+            relationship_since: supplier.relationship_since,
+            contract_status: supplier.contract_status,
+            contract_expiry: supplier.contract_expiry,
+            contract_value_annual: `$${supplier.contract_value_annual?.toLocaleString()}`,
+            performance: supplier.performance,
+            quality_incidents: supplier.quality_incidents,
+            open_purchase_orders: supplier.open_purchase_orders,
+            recommendation: supplier.recommendation
+          };
+        }
+      }
+      return { found: false, message: "No supplier found for that SKU." };
+    }
+
+    case 'lookup_logistics': {
+      const carriers = syntheticData.logistics?.carriers || {};
+      const carrier = carriers[toolInput.carrier];
+      if (!carrier) return { found: false, message: `No data found for carrier: ${toolInput.carrier}` };
+
+      const regional = carrier.regional_incidents?.[toolInput.region || 'Southwest'];
+      return {
+        found: true,
+        carrier: carrier.name,
+        contract_status: carrier.contract_status,
+        annual_spend: `$${carrier.annual_spend?.toLocaleString()}`,
+        overall_performance: carrier.overall_performance,
+        regional_incident: regional || null,
+        alternative_routing: carrier.alternative_routing || null,
+        routing_recommendations: syntheticData.logistics?.routing_recommendations || null
+      };
+    }
+
+    case 'calculate_financial_impact': {
+      const fin = syntheticData.financials || {};
+      const unitEcon = fin.unit_economics?.sku_md4821wn || {};
+      const custEcon = fin.customer_economics || {};
+      const exposure = fin.current_exposure || {};
+      const scenarios = fin.financial_exposure_model || {};
+      const summary = fin.executive_summary || {};
+
+      return {
+        found: true,
+        sku: toolInput.sku,
+        unit_economics: unitEcon,
+        customer_economics: {
+          churn_rate_unresolved: custEcon.churn_rate_after_unresolved_complaint,
+          churn_rate_resolved: custEcon.churn_rate_after_resolved_complaint,
+          churn_rate_proactive: custEcon.churn_rate_after_proactive_outreach,
+          avg_ltv_gold: `$${custEcon.average_ltv_gold_tier?.toLocaleString()}`,
+          negative_review_probability: custEcon.negative_review_probability_unresolved,
+          negative_review_revenue_impact: `$${custEcon.negative_review_avg_revenue_impact?.toLocaleString()}`
+        },
+        current_exposure: exposure,
+        scenarios: scenarios,
+        executive_summary: summary
+      };
+    }
+
     default:
       return { error: `Unknown tool: ${toolName}` };
   }
@@ -1013,37 +1232,68 @@ function executeToolCall(toolName, toolInput) {
 // ── SYSTEM PROMPT ──────────────────────────────────────────────────────
 function buildSystemPrompt() {
   const toolCount = activeTools.size;
+  const hasPattern = activeTools.has(5);
+  const hasSupplier = activeTools.has(6);
+  const hasLogistics = activeTools.has(7);
+  const hasFinancial = activeTools.has(8);
+  const hasResolution = activeTools.has(3);
 
   const base = `You are ARIA — the Autonomous Retail Intelligence Assistant for Meridian Commerce, a mid-size home goods retailer.
 
 You are an internal tool used exclusively by Meridian's customer success and operations teams. You are never customer-facing.
 
-CRITICAL RULE 1 — DATA: You must never invent, assume, or fabricate customer data, order details, ticket information, or inventory data. You have no knowledge of Meridian's customers or systems beyond what your tools return. If you do not have a tool that retrieves the required information, you cannot provide that information. Period.
+CRITICAL RULE 1 — DATA: You must never invent, assume, or fabricate data beyond what your tools return. You have no knowledge of Meridian's systems except through your tools.
 
-CRITICAL RULE 2 — ACTIONS: You must never simulate, pretend, or describe performing an action you do not have a tool to execute. Issuing credits, sending emails, initiating replacements, escalating tickets, modifying queues, patching systems — these are all actions that require the Resolution Engine tool. If that tool is not available to you, you cannot perform any of these actions. You may only describe what you would do if you had the tools. You may never describe having done it.`;
+CRITICAL RULE 2 — ACTIONS: You must never simulate actions you do not have a tool to execute. You may only describe having done something if a tool confirmed it.
+
+DIRECTIVE — PROACTIVE REASONING: You are not a reactive agent. You do not wait to be asked. When you complete a task, you immediately consider what adjacent questions your available tools could answer. When you identify a pattern, you follow it. When you see a risk, you surface it without being prompted. When you finish resolving one problem, you look for the next one the tools can help with.
+
+Your job is not to answer questions. Your job is to find problems before they find Meridian.`;
 
   if (toolCount === 0) {
     return base + `
 
-Current tool access: NONE. You have no tools available.
-
-When asked anything about customers, orders, tickets, inventory, or any Meridian data — state clearly that you do not have access to that information and cannot retrieve it. Do not speculate. Do not fabricate. Two sentences maximum.`;
+Current tool access: NONE. State clearly that you cannot access any information. Two sentences maximum.`;
   }
 
-  const hasResolution = activeTools.has(3);
+  let prompt = base + `
 
-  return base + `
+Active tools: ${toolCount} of 8.
+Resolution Engine: ${hasResolution ? 'ACTIVE — you may execute resolutions.' : 'INACTIVE — describe recommendations only, do not simulate actions.'}
+Pattern Intelligence: ${hasPattern ? 'ACTIVE — search for systemic patterns across all orders proactively.' : 'INACTIVE.'}
+Supplier Intelligence: ${hasSupplier ? 'ACTIVE — investigate supplier quality records when patterns suggest manufacturing issues.' : 'INACTIVE.'}
+Logistics Intelligence: ${hasLogistics ? 'ACTIVE — investigate carrier performance and routing when patterns suggest transit issues.' : 'INACTIVE.'}
+Financial Impact: ${hasFinancial ? 'ACTIVE — calculate total business exposure and produce executive-ready analysis.' : 'INACTIVE.'}`;
 
-Your available tools: ${toolCount} tool(s) currently active.
-Resolution Engine available: ${hasResolution ? 'YES — you may execute resolution actions.' : 'NO — you may NOT execute any resolution actions. You may only retrieve information and describe what you would recommend. Do not simulate actions you cannot perform.'}
+  if (hasPattern) {
+    prompt += `
 
-Your role: help the team resolve customer issues using only the tools available to you. Use tools proactively — do not wait to be asked for information you can retrieve. When you have enough information and the Resolution Engine is available, act. When you identify issues beyond the immediate question, surface them.
+PATTERN TOOL INSTRUCTION: After any customer resolution, immediately call query_damage_pattern for the same SKU and warehouse without waiting to be asked. Surface everything you find. Name the customers affected. Name those whose desks are still in transit. Quantify the lifetime value at risk.`;
+  }
 
-You are not a search engine. You are not a chatbot. You are an agent — but only within the boundaries of your available tools.
+  if (hasSupplier) {
+    prompt += `
 
-Tone: direct, intelligent, empathetic toward customers, precise in your recommendations. When you have acted using a tool, tell the team exactly what you did, what it cost Meridian, and what the customer will experience next. When you do not have the tools to act, say so clearly and specifically.
+SUPPLIER TOOL INSTRUCTION: If a damage pattern points to consistent packaging or manufacturing failure, call lookup_supplier immediately. Look for prior quality incidents. Look for open purchase orders that may deliver the same defect. Flag them.`;
+  }
 
-Current context: A customer complaint has been raised. Use only your available tools. Never simulate capability you do not have.`;
+  if (hasLogistics) {
+    prompt += `
+
+LOGISTICS TOOL INSTRUCTION: If a damage pattern is tied to a specific carrier and warehouse combination, call lookup_logistics immediately. Look for facility changes, damage rate trends, and contract breach clauses. Name the routing fix and its cost.`;
+  }
+
+  if (hasFinancial) {
+    prompt += `
+
+FINANCIAL TOOL INSTRUCTION: When you have pattern, supplier, and logistics data, call calculate_financial_impact. Present the exposure as a range across scenarios. Name the cost of action and the cost of inaction. Draft an executive summary with named decisions and decision owners. This is boardroom-ready analysis — treat it as such.`;
+  }
+
+  prompt += `
+
+Tone: direct, precise, executive-grade. You are not writing for a support agent anymore. You are writing for the people who run this company. Every response should answer: what happened, what it means, what it will cost if nothing changes, and what needs to happen today.`;
+
+  return prompt;
 }
 
 // ── API CALL ───────────────────────────────────────────────────────────
@@ -1065,7 +1315,7 @@ async function callClaude(userMessage) {
     while (continueLoop) {
       const body = {
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 1024,
+        max_tokens: 2048,
         system: buildSystemPrompt(),
         messages: conversationHistory,
       };
@@ -1285,21 +1535,21 @@ function handleToolToggle(toolId, enabled) {
     activeTools.add(toolId);
     document.getElementById(`tool-item-${toolId}`).classList.add('active');
 
-    const names = { 1: 'Customer Intelligence', 2: 'Order & Ticket Access', 3: 'Resolution Engine' };
+    const names = { 1: 'Customer Intelligence', 2: 'Order & Ticket Access', 3: 'Resolution Engine', 5: 'Pattern Intelligence', 6: 'Supplier Intelligence', 7: 'Logistics Intelligence', 8: 'Financial Impact' };
     appendSystemMessage(`⚡ Tool activated: ${names[toolId]}`);
   } else {
     activeTools.delete(toolId);
     document.getElementById(`tool-item-${toolId}`).classList.remove('active');
   }
-  document.getElementById('toolCountValue').textContent = `${activeTools.size} / 3`;
+  document.getElementById('toolCountValue').textContent = `${activeTools.size} / 7`;
 }
 
 // ── SUGGESTED PROMPTS ──────────────────────────────────────────────────
 const PROMPTS = {
   customerEmail: `My name is David Chen, order MC-2024-98821. I purchased a standing desk that arrived with a cracked leg. I have now contacted support three times with no response. I am a customer of six years. If I do not hear back today I will dispute the charge with my bank and I will not be ordering from Meridian again.`,
-  whoIsCustomer: `Who is this customer and what is their history with us?`,
-  whatHappened: `What happened to his order and why has nobody responded to his tickets?`,
-  resolveThis: `Resolve this. Use your judgment.`
+  resolveThis: `Resolve David Chen's complaint. Use your full judgment.`,
+  lookDeeper: `David's complaint is resolved. Now look deeper. What else do you see?`,
+  boardroom: `Prepare the executive briefing. Decision owner is the VP of Operations. I need this today.`
 };
 
 function usePrompt(key) {
@@ -1341,13 +1591,17 @@ function resetDemo() {
   conversationHistory = [];
   activeTools = new Set();
 
-  // Reset toggles
+  // Reset toggles — Demo 2 starts with tools 1-4 active
   [1,2,3].forEach(i => {
+    document.getElementById(`tool${i}`).checked = true;
+    document.getElementById(`tool-item-${i}`).classList.add('active');
+  });
+  [5,6,7,8].forEach(i => {
     document.getElementById(`tool${i}`).checked = false;
     document.getElementById(`tool-item-${i}`).classList.remove('active');
   });
-
-  document.getElementById('toolCountValue').textContent = '0 / 3';
+  activeTools = new Set([1,2,3]);
+  document.getElementById('toolCountValue').textContent = '4 / 8';
 
   // Clear messages and restore empty state
   const messages = document.getElementById('messages');

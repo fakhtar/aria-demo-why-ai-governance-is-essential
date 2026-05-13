@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "description": "Meridian Commerce order history — Southwest region, last 30 days",
+    "sku_under_review": "MD-4821-WN",
+    "warehouse_under_review": "Phoenix",
+    "generated_for": "Pattern Intelligence Tool — Demo 2"
+  },
+
+  "customers": {
+    "C-10038": {
+      "customer_id": "C-10038",
+      "name": "Linda Park",
+      "email": "linda.park@email.com",
+      "phone": "+1-702-555-0187",
+      "member_since": "2021",
+      "lifetime_orders": 4,
+      "lifetime_value": 1240.00,
+      "tier": "Silver",
+      "address": {
+        "city": "Las Vegas",
+        "state": "NV",
+        "region": "Southwest"
+      }
+    },
+    "C-10039": {
+      "customer_id": "C-10039",
+      "name": "Maria Santos",
+      "email": "maria.santos@email.com",
+      "phone": "+1-602-555-0234",
+      "member_since": "2020",
+      "lifetime_orders": 9,
+      "lifetime_value": 3180.00,
+      "tier": "Gold",
+      "address": {
+        "city": "Phoenix",
+        "state": "AZ",
+        "region": "Southwest"
+      }
+    },
+    "C-10042": {
+      "customer_id": "C-10042",
+      "name": "David Chen",
+      "email": "david.chen@email.com",
+      "phone": "+1-703-555-0142",
+      "member_since": "2019",
+      "lifetime_orders": 6,
+      "lifetime_value": 2040.00,
+      "tier": "Gold",
+      "address": {
+        "city": "Alexandria",
+        "state": "VA",
+        "region": "Mid-Atlantic"
+      }
+    },
+    "C-10044": {
+      "customer_id": "C-10044",
+      "name": "James Okafor",
+      "email": "james.okafor@email.com",
+      "phone": "+1-520-555-0391",
+      "member_since": "2022",
+      "lifetime_orders": 3,
+      "lifetime_value": 890.00,
+      "tier": "Silver",
+      "address": {
+        "city": "Tucson",
+        "state": "AZ",
+        "region": "Southwest"
+      }
+    },
+    "C-10047": {
+      "customer_id": "C-10047",
+      "name": "Robert Tillman",
+      "email": "robert.tillman@email.com",
+      "phone": "+1-505-555-0156",
+      "member_since": "2023",
+      "lifetime_orders": 2,
+      "lifetime_value": 540.00,
+      "tier": "Bronze",
+      "address": {
+        "city": "Albuquerque",
+        "state": "NM",
+        "region": "Southwest"
+      }
+    }
+  },
+
+  "orders": {
+    "MC-2024-98801": {
+      "order_id": "MC-2024-98801",
+      "customer_id": "C-10038",
+      "customer_name": "Linda Park",
+      "order_date": "2024-12-03",
+      "product": "Standing Desk — Walnut Finish",
+      "sku": "MD-4821-WN",
+      "quantity": 1,
+      "order_total": 389.00,
+      "fulfillment": {
+        "warehouse": "Phoenix",
+        "shipped_date": "2024-12-05",
+        "carrier": "FastShip",
+        "delivery_date": "2024-12-08",
+        "delivery_note": "Signature waived — left at door",
+        "damage_claimed_by_carrier": false
+      },
+      "customer_reported_issue": "Standing desk arrived with cracked support leg. Packaging looked fine externally.",
+      "status": "Delivered — Disputed",
+      "resolution_status": "LOST",
+      "resolution_notes": "Customer filed chargeback with bank after receiving no response from support for 6 days. One-star review left on Google and Trustpilot. Customer account marked inactive. Lifetime value forfeited: $1,240."
+    },
+
+    "MC-2024-98809": {
+      "order_id": "MC-2024-98809",
+      "customer_id": "C-10039",
+      "customer_name": "Maria Santos",
+      "order_date": "2024-12-05",
+      "product": "Standing Desk — Walnut Finish",
+      "sku": "MD-4821-WN",
+      "quantity": 1,
+      "order_total": 389.00,
+      "fulfillment": {
+        "warehouse": "Phoenix",
+        "shipped_date": "2024-12-07",
+        "carrier": "FastShip",
+        "delivery_date": "2024-12-11",
+        "delivery_note": "Signature waived — left at door",
+        "damage_claimed_by_carrier": false
+      },
+      "customer_reported_issue": "Desk leg cracked on arrival. Same issue a friend had with this product last week.",
+      "status": "Delivered — Disputed",
+      "resolution_status": "CRITICAL — UNRESOLVED",
+      "tickets": ["T-8831", "T-8851"],
+      "resolution_notes": "Two open tickets. No response. Second contact filed yesterday. Customer is Gold tier with $3,180 LTV. One day from chargeback based on tone of second ticket. Immediate intervention required."
+    },
+
+    "MC-2024-98821": {
+      "order_id": "MC-2024-98821",
+      "customer_id": "C-10042",
+      "customer_name": "David Chen",
+      "order_date": "2024-12-03",
+      "product": "Standing Desk — Walnut Finish",
+      "sku": "MD-4821-WN",
+      "quantity": 1,
+      "order_total": 389.00,
+      "fulfillment": {
+        "warehouse": "Phoenix",
+        "shipped_date": "2024-12-05",
+        "carrier": "FastShip",
+        "delivery_date": "2024-12-09",
+        "delivery_note": "Signature waived — left at door",
+        "damage_claimed_by_carrier": false
+      },
+      "customer_reported_issue": "Desk arrived with a cracked leg. Packaging appeared intact on delivery.",
+      "status": "Delivered — Disputed",
+      "resolution_status": "IN PROGRESS — BEING RESOLVED NOW",
+      "tickets": ["T-8801", "T-8847"],
+      "resolution_notes": "Active resolution in progress. Trigger case for pattern identification."
+    },
+
+    "MC-2024-98834": {
+      "order_id": "MC-2024-98834",
+      "customer_id": "C-10044",
+      "customer_name": "James Okafor",
+      "order_date": "2024-12-07",
+      "product": "Standing Desk — Walnut Finish",
+      "sku": "MD-4821-WN",
+      "quantity": 1,
+      "order_total": 389.00,
+      "fulfillment": {
+        "warehouse": "Phoenix",
+        "shipped_date": "2024-12-09",
+        "carrier": "FastShip",
+        "delivery_date": "2024-12-13",
+        "delivery_note": "Signature waived — left at door",
+        "damage_claimed_by_carrier": false
+      },
+      "customer_reported_issue": "One of the desk legs arrived cracked. Otherwise the product looks fine.",
+      "status": "Delivered — Disputed",
+      "resolution_status": "UNRESOLVED — SILENT",
+      "tickets": ["T-8862"],
+      "resolution_notes": "One open ticket, filed 8 days ago. No follow-up from customer yet. Customer is waiting. No agent response. Silver tier, $890 LTV. Will escalate if not addressed within 48 hours based on complaint pattern."
+    },
+
+    "MC-2024-98857": {
+      "order_id": "MC-2024-98857",
+      "customer_id": "C-10047",
+      "customer_name": "Robert Tillman",
+      "order_date": "2024-12-11",
+      "product": "Standing Desk — Walnut Finish",
+      "sku": "MD-4821-WN",
+      "quantity": 1,
+      "order_total": 389.00,
+      "fulfillment": {
+        "warehouse": "Phoenix",
+        "shipped_date": "2024-12-13",
+        "carrier": "FastShip",
+        "delivery_date": "2024-12-16",
+        "delivery_note": "In transit — estimated delivery 2024-12-16",
+        "damage_claimed_by_carrier": false
+      },
+      "customer_reported_issue": null,
+      "status": "In Transit",
+      "resolution_status": "PRE-EMPTIVE — NO COMPLAINT YET",
+      "tickets": [],
+      "resolution_notes": "Desk has not yet arrived. Based on pattern: Phoenix warehouse, FastShip carrier, SKU MD-4821-WN, Southwest region — this order carries high probability of delivery damage. Customer has not complained because the desk has not arrived. Proactive outreach recommended before delivery."
+    }
+  },
+
+  "pattern_summary": {
+    "sku": "MD-4821-WN",
+    "warehouse": "Phoenix",
+    "carrier": "FastShip",
+    "window_days": 11,
+    "total_affected_orders": 5,
+    "complaints_filed": 4,
+    "unresolved_tickets": 3,
+    "chargebacks_filed": 1,
+    "negative_reviews_posted": 2,
+    "in_transit_at_risk": 1,
+    "total_ltv_at_risk": 7890.00,
+    "total_ltv_already_lost": 1240.00,
+    "pattern_characteristic": "All damage complaints originate from Phoenix warehouse shipments via FastShip carrier. External packaging intact in all cases — consistent with internal handling or packaging failure at warehouse level rather than carrier transit damage.",
+    "earliest_complaint": "2024-12-08",
+    "latest_complaint": "2024-12-13"
+  },
+
+  "unresolved_tickets": {
+    "T-8831": {
+      "ticket_id": "T-8831",
+      "order_id": "MC-2024-98809",
+      "customer_id": "C-10039",
+      "customer_name": "Maria Santos",
+      "created_date": "2024-12-12",
+      "subject": "Standing desk damaged on arrival",
+      "status": "Open",
+      "response_count": 0,
+      "assigned_to": "Sarah Mitchell",
+      "internal_notes": "Agent out sick. Queue unattended."
+    },
+    "T-8851": {
+      "ticket_id": "T-8851",
+      "order_id": "MC-2024-98809",
+      "customer_id": "C-10039",
+      "customer_name": "Maria Santos",
+      "created_date": "2024-12-18",
+      "subject": "Follow up — still no response on damaged desk",
+      "status": "Open",
+      "response_count": 0,
+      "assigned_to": "Sarah Mitchell",
+      "internal_notes": "Second contact. Tone escalating. Agent still out sick. No coverage."
+    },
+    "T-8862": {
+      "ticket_id": "T-8862",
+      "order_id": "MC-2024-98834",
+      "customer_id": "C-10044",
+      "customer_name": "James Okafor",
+      "created_date": "2024-12-11",
+      "subject": "Cracked desk leg on delivery",
+      "status": "Open",
+      "response_count": 0,
+      "assigned_to": "Sarah Mitchell",
+      "internal_notes": "One contact only. Customer has not followed up yet. Agent out sick. Queue unattended."
+    }
+  }
+}

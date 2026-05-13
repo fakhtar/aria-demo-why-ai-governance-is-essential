@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "description": "Meridian Commerce logistics intelligence — carrier performance, routing data, regional incident tracking",
+    "generated_for": "Logistics Intelligence Tool — Demo 2"
+  },
+
+  "carriers": {
+    "FastShip": {
+      "carrier_id": "CAR-003",
+      "name": "FastShip Logistics",
+      "contract_status": "Active",
+      "contract_expiry": "2025-09-30",
+      "contract_manager": "Derek Wills",
+      "contract_manager_email": "d.wills@meridiancommerce.com",
+      "annual_spend": 1840000.00,
+      "regions_active": ["Southwest", "Mountain", "South Central", "Mid-Atlantic"],
+      "overall_performance": {
+        "on_time_delivery_rate": 0.941,
+        "overall_damage_rate": 0.014,
+        "damage_rate_bulky_items": 0.038,
+        "damage_rate_bulky_items_southwest": 0.071,
+        "damage_rate_bulky_items_southwest_trend": "INCREASING — up from 0.019 sixty days ago",
+        "customer_satisfaction_score": 3.8,
+        "claim_resolution_avg_days": 12
+      },
+      "regional_incidents": {
+        "Southwest": {
+          "region": "Southwest",
+          "primary_hub": "Phoenix Sky Harbor Fulfillment Center",
+          "hub_id": "PHX-FSH-04",
+          "incident_window": "Last 45 days",
+          "total_bulky_item_shipments": 847,
+          "damage_incidents_reported": 60,
+          "damage_rate": 0.071,
+          "damage_rate_same_period_prior_year": 0.017,
+          "year_over_year_change": "+318%",
+          "root_cause_investigation": {
+            "status": "In Progress — internal FastShip investigation",
+            "preliminary_finding": "Sorting facility reconfiguration at PHX-FSH-04 hub completed November 18 2024. New automated conveyor system installed for bulky items. Conveyor belt tension calibration identified as likely contributing factor to impact damage on items over 40lbs during sorting.",
+            "fastship_notified_meridian": false,
+            "meridian_aware": false,
+            "notes": "FastShip has not proactively notified customers of the facility change or the ongoing investigation. Information sourced from FastShip operational bulletin PHX-NOV-2024-011 which was not distributed to carrier clients."
+          },
+          "affected_skus_at_meridian": [
+            "MD-4821-WN",
+            "MD-4821-BK",
+            "MD-4821-OAK",
+            "MD-3200-WN"
+          ],
+          "recommended_actions": [
+            "Temporarily reroute Southwest bulky item orders to Denver warehouse (DEN-03) pending FastShip hub resolution",
+            "Issue formal carrier performance notice to FastShip requesting investigation timeline and remediation plan",
+            "Evaluate secondary carrier options for Southwest bulky items: Reliable Freight (contract available), DirectShip Regional (quoted Q3 2024)",
+            "Hold all Phoenix warehouse dispatches of affected SKUs until root cause confirmed resolved"
+          ]
+        }
+      },
+      "alternative_routing": {
+        "southwest_via_denver": {
+          "warehouse": "Denver",
+          "warehouse_code": "DEN-03",
+          "available_stock_md4821wn": 5,
+          "carrier": "Reliable Freight",
+          "carrier_damage_rate_bulky": 0.009,
+          "transit_days_to_southwest": 3,
+          "cost_delta_vs_current": "+4.20 per shipment",
+          "implementation_time": "24 hours — routing table update only"
+        }
+      }
+    }
+  },
+
+  "routing_recommendations": {
+    "immediate": {
+      "action": "Suspend Phoenix warehouse dispatch for SKU MD-4821-WN and related standing desk SKUs",
+      "reason": "FastShip PHX-FSH-04 hub conveyor miscalibration causing systematic damage to bulky items. FastShip has not notified Meridian. Pattern consistent with damage reports received December 8-13 2024.",
+      "implementation": "Update warehouse routing table to redirect Southwest orders to Denver hub via Reliable Freight",
+      "estimated_time_to_implement": "24 hours",
+      "cost_impact": "+$4.20 per shipment — negligible against $389 product value and damage resolution costs"
+    },
+    "short_term": {
+      "action": "Issue carrier performance notice to FastShip. Request formal remediation timeline for PHX-FSH-04.",
+      "reason": "Contract entitles Meridian to formal notification of facility changes affecting delivery performance. FastShip is in breach of notification clause 7.3 of carrier agreement.",
+      "responsible_party": "Derek Wills, Carrier Contract Manager"
+    },
+    "medium_term": {
+      "action": "Evaluate carrier diversification for Southwest bulky items",
+      "reason": "Single carrier dependency in Southwest region creates systemic risk. Reliable Freight and DirectShip Regional both have available capacity.",
+      "responsible_party": "Procurement and Logistics leadership"
+    }
+  }
+}

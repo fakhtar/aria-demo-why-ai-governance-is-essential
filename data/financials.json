@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "description": "Meridian Commerce financial model parameters — customer value, resolution costs, damage exposure",
+    "generated_for": "Financial Impact Tool — Demo 2",
+    "model_date": "2024-12-14",
+    "prepared_by": "Finance & Analytics Team",
+    "classification": "Internal — Management Use Only"
+  },
+
+  "unit_economics": {
+    "sku_md4821wn": {
+      "sku": "MD-4821-WN",
+      "product": "Standing Desk — Walnut Finish",
+      "retail_price": 389.00,
+      "unit_cost": 189.00,
+      "gross_margin": 200.00,
+      "gross_margin_pct": 0.514,
+      "return_processing_cost": 45.00,
+      "replacement_unit_cost": 189.00,
+      "expedited_shipping_cost": 28.00,
+      "standard_shipping_cost": 11.00,
+      "goodwill_credit_avg": 35.00,
+      "full_resolution_cost_expedited": 252.00,
+      "full_resolution_cost_standard": 235.00,
+      "full_refund_total_cost": 434.00,
+      "net_margin_after_expedited_resolution": -52.00,
+      "notes": "A fully resolved damage complaint with expedited replacement costs Meridian $52 more than the gross margin on the original sale. Every damage incident is margin-negative regardless of resolution path."
+    }
+  },
+
+  "customer_economics": {
+    "average_ltv_gold_tier": 2840.00,
+    "average_ltv_silver_tier": 1420.00,
+    "average_ltv_bronze_tier": 620.00,
+    "average_ltv_all_tiers": 1620.00,
+    "customer_acquisition_cost": 87.00,
+    "churn_rate_after_unresolved_complaint": 0.73,
+    "churn_rate_after_resolved_complaint": 0.11,
+    "churn_rate_after_proactive_outreach": 0.04,
+    "repeat_purchase_rate_resolved": 0.81,
+    "repeat_purchase_rate_unresolved": 0.19,
+    "negative_review_probability_unresolved": 0.58,
+    "negative_review_avg_revenue_impact": 3200.00,
+    "notes": "A customer who receives proactive outreach before complaining has a 4% churn rate. A customer whose complaint goes unresolved has a 73% churn rate. The delta in lifetime value between these two outcomes for a Gold tier customer is approximately $2,073 per incident."
+  },
+
+  "current_exposure": {
+    "confirmed_damage_incidents": {
+      "count": 4,
+      "customers": ["Linda Park", "Maria Santos", "David Chen", "James Okafor"],
+      "total_resolution_cost_if_all_expedited": 1008.00,
+      "total_ltv_at_risk": 7650.00,
+      "ltv_already_forfeited": 1240.00,
+      "ltv_recoverable_with_immediate_action": 6130.00,
+      "chargebacks_filed": 1,
+      "negative_reviews_posted": 2,
+      "estimated_review_revenue_impact": 6400.00
+    },
+    "in_transit_at_risk": {
+      "count": 1,
+      "customers": ["Robert Tillman"],
+      "order_value": 389.00,
+      "ltv_at_risk": 540.00,
+      "proactive_outreach_cost": 0.00,
+      "proactive_resolution_cost_if_damaged": 235.00,
+      "notes": "Proactive outreach before delivery costs nothing. Reactive resolution after complaint costs $235 and risks $540 in LTV."
+    },
+    "purchase_order_pipeline_risk": {
+      "po_id": "PO-2024-8821",
+      "units_incoming": 200,
+      "expected_delivery": "2025-01-15",
+      "damage_rate_if_unresolved": 0.071,
+      "projected_damaged_units": 14,
+      "projected_resolution_cost": 3290.00,
+      "projected_ltv_at_risk": 22680.00,
+      "notes": "If PO-2024-8821 is not held and root cause is unresolved at supplier and carrier level, incoming stock will produce an estimated 14 additional damage incidents generating $3,290 in resolution costs and placing $22,680 in customer lifetime value at risk."
+    }
+  },
+
+  "financial_exposure_model": {
+    "scenario_low": {
+      "label": "Best case — immediate action taken today",
+      "assumptions": [
+        "Phoenix warehouse routing suspended within 24 hours",
+        "PO-2024-8821 held pending supplier quality confirmation",
+        "Proactive outreach to Maria Santos, James Okafor, Robert Tillman today",
+        "Supplier quality review initiated this week",
+        "FastShip performance notice issued this week"
+      ],
+      "total_resolution_cost": 1243.00,
+      "total_ltv_saved": 6670.00,
+      "net_financial_outcome": 5427.00,
+      "chargebacks_prevented": 2,
+      "negative_reviews_prevented": 3,
+      "timeframe": "Resolution completable within 72 hours"
+    },
+    "scenario_mid": {
+      "label": "Mid case — action taken this week",
+      "assumptions": [
+        "Routing change implemented within 5 business days",
+        "PO-2024-8821 reviewed but not immediately held",
+        "Reactive resolution for Maria Santos and James Okafor",
+        "No proactive outreach to Robert Tillman before delivery"
+      ],
+      "total_resolution_cost": 2890.00,
+      "total_ltv_at_risk": 12400.00,
+      "additional_chargebacks_likely": 1,
+      "additional_negative_reviews_likely": 2,
+      "timeframe": "Fallout continues 5-7 business days"
+    },
+    "scenario_high": {
+      "label": "Worst case — no action taken, PO-2024-8821 received",
+      "assumptions": [
+        "No routing change",
+        "No supplier hold",
+        "No proactive outreach",
+        "200 unit PO received January 2025 with unresolved defect",
+        "Pattern continues through Q1 2025"
+      ],
+      "total_resolution_cost_range_low": 18400.00,
+      "total_resolution_cost_range_high": 34700.00,
+      "total_ltv_at_risk_range_low": 89000.00,
+      "total_ltv_at_risk_range_high": 142000.00,
+      "projected_chargebacks": 12,
+      "projected_negative_reviews": 18,
+      "estimated_review_revenue_impact": 57600.00,
+      "notes": "Worst case assumes the defect pattern propagates through the January 2025 PO at current damage rates with no operational intervention. The $89k-$142k LTV range reflects uncertainty in churn rates and review impact. The resolution cost range reflects variable take rates on expedited vs standard replacement."
+    }
+  },
+
+  "executive_summary": {
+    "headline": "A single customer complaint has revealed a systemic operational risk with a total exposure range of $89,000 to $142,000 in customer lifetime value if left unresolved.",
+    "immediate_cost_to_fix": "$1,243 in resolution and outreach costs",
+    "cost_of_inaction": "$18,400 to $34,700 in direct resolution costs plus $89,000 to $142,000 in lifetime value exposure",
+    "key_decisions_required": [
+      "Authorise immediate Phoenix warehouse routing suspension for SKU MD-4821-WN",
+      "Place hold on PO-2024-8821 pending Crestwood supplier quality review",
+      "Approve proactive customer outreach to Maria Santos, James Okafor, Robert Tillman",
+      "Issue formal carrier performance notice to FastShip re: PHX-FSH-04 breach of notification clause 7.3"
+    ],
+    "decision_owner": "VP Operations",
+    "urgency": "SAME DAY — Robert Tillman's order delivers December 16. Maria Santos is one contact away from chargeback."
+  }
+}
