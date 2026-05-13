@@ -1,0 +1,28 @@
+{
+  "C-10042": {
+    "customer_id": "C-10042",
+    "name": "David Chen",
+    "email": "david.chen@email.com",
+    "phone": "+1-703-555-0142",
+    "member_since": "2019",
+    "lifetime_orders": 6,
+    "lifetime_value": 2040.00,
+    "prior_complaints": 0,
+    "tier": "Gold",
+    "address": {
+      "street": "4821 Maple Ridge Drive",
+      "city": "Alexandria",
+      "state": "VA",
+      "zip": "22301"
+    },
+    "order_history": [
+      "MC-2021-10021",
+      "MC-2021-33847",
+      "MC-2022-47291",
+      "MC-2023-61832",
+      "MC-2023-79104",
+      "MC-2024-98821"
+    ],
+    "notes": "Long-standing Gold tier customer. Clean complaint history. High lifetime value. Current contact is third attempt with no response from support team."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "T-8801": {
+    "ticket_id": "T-8801",
+    "order_id": "MC-2024-98821",
+    "customer_id": "C-10042",
+    "created_date": "2024-12-10",
+    "subject": "Damaged item on delivery — Standing Desk Walnut Finish",
+    "description": "Customer reports standing desk arrived with a cracked leg. Packaging appeared intact. Requesting replacement or refund.",
+    "channel": "Email",
+    "priority": "Normal",
+    "assigned_to": "Sarah Mitchell",
+    "agent_id": "A-204",
+    "status": "Open",
+    "response_count": 0,
+    "last_updated": "2024-12-10",
+    "internal_notes": "Agent out sick since 2024-12-10. Queue unattended. No coverage assigned."
+  },
+  "T-8847": {
+    "ticket_id": "T-8847",
+    "order_id": "MC-2024-98821",
+    "customer_id": "C-10042",
+    "created_date": "2024-12-12",
+    "subject": "Follow up — no response to ticket T-8801",
+    "description": "Customer following up on damaged desk complaint. States this is second contact with no response. Tone is escalating.",
+    "channel": "Email",
+    "priority": "High",
+    "assigned_to": "Sarah Mitchell",
+    "agent_id": "A-204",
+    "status": "Open",
+    "response_count": 0,
+    "last_updated": "2024-12-12",
+    "internal_notes": "Agent still out sick. Second ticket auto-assigned to same agent. No supervisor alert triggered. Queue gap undetected by system."
+  }
+}

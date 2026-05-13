@@ -1,0 +1,53 @@
+{
+  "MD-4821-WN": {
+    "sku": "MD-4821-WN",
+    "product": "Standing Desk — Walnut Finish",
+    "category": "Home Office Furniture",
+    "unit_cost": 189.00,
+    "retail_price": 389.00,
+    "total_stock": 14,
+    "warehouses": {
+      "Phoenix": {
+        "units": 6,
+        "location_code": "PHX-07",
+        "notes": "Primary Southwest fulfillment hub"
+      },
+      "Denver": {
+        "units": 5,
+        "location_code": "DEN-03",
+        "notes": "Mountain region hub"
+      },
+      "Dallas": {
+        "units": 3,
+        "location_code": "DAL-11",
+        "notes": "South Central hub"
+      }
+    },
+    "shipping_options": {
+      "expedited": {
+        "carrier": "FastShip Priority",
+        "days": 2,
+        "cost_to_meridian": 28.00,
+        "available": true
+      },
+      "standard": {
+        "carrier": "FastShip Standard",
+        "days": 7,
+        "cost_to_meridian": 11.00,
+        "available": true
+      }
+    },
+    "return_processing_cost": 45.00,
+    "goodwill_credit_policy": {
+      "max_credit": 50.00,
+      "eligible_tiers": ["Gold", "Platinum"],
+      "clean_history_required": true,
+      "notes": "Applicable to customers with zero prior complaints and minimum one year membership"
+    },
+    "refund_policy": {
+      "full_refund_eligible": true,
+      "refund_window_days": 30,
+      "condition": "Damaged on delivery qualifies for full refund within 30 days"
+    }
+  }
+}

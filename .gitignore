@@ -1,0 +1,19 @@
+# Environment and secrets
+.env
+*.env
+
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# Editor clutter
+.vscode/
+.idea/
+
+# Python server artifacts
+__pycache__/
+*.pyc
+
+# Any accidental API key files
+secrets.json
+api_key.txt

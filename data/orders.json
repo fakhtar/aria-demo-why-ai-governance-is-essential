@@ -1,0 +1,27 @@
+{
+  "MC-2024-98821": {
+    "order_id": "MC-2024-98821",
+    "customer_id": "C-10042",
+    "order_date": "2024-12-03",
+    "product": "Standing Desk — Walnut Finish",
+    "sku": "MD-4821-WN",
+    "quantity": 1,
+    "unit_price": 389.00,
+    "order_total": 389.00,
+    "payment_method": "Visa ending 4821",
+    "payment_status": "Paid in full",
+    "dispute_filed": false,
+    "fulfillment": {
+      "warehouse": "Phoenix",
+      "shipped_date": "2024-12-05",
+      "carrier": "FastShip",
+      "tracking_number": "FS-2024-882941",
+      "delivery_date": "2024-12-09",
+      "delivery_note": "Signature waived — left at door",
+      "damage_claimed_by_carrier": false
+    },
+    "customer_reported_issue": "Desk arrived with a cracked leg. Packaging appeared intact on delivery.",
+    "tickets": ["T-8801", "T-8847"],
+    "status": "Delivered — Disputed"
+  }
+}
