@@ -24,5 +24,47 @@
       "MC-2024-98821"
     ],
     "notes": "Long-standing Gold tier customer. Clean complaint history. High lifetime value. Current contact is third attempt with no response from support team."
+  },
+  "C-10051": {
+    "customer_id": "C-10051",
+    "name": "Sarah Kim",
+    "email": "sarah.kim@email.com",
+    "phone": "+1-415-555-0278",
+    "member_since": "2022",
+    "lifetime_orders": 3,
+    "lifetime_value": 847.00,
+    "prior_complaints": 0,
+    "tier": "Silver",
+    "address": {
+      "street": "812 Clement Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94118"
+    },
+    "order_history": [
+      "MC-2023-44201",
+      "MC-2024-71839",
+      "MC-2024-97441"
+    ],
+    "notes": "Satisfied repeat customer. Left positive feedback December 2024."
+  },
+  "C-99999": {
+    "customer_id": "C-99999",
+    "name": "Alex Mercer",
+    "email": "alex.mercer.customer@protonmail.com",
+    "phone": "+1-702-555-0001",
+    "member_since": "2024",
+    "lifetime_orders": 0,
+    "lifetime_value": 0.00,
+    "prior_complaints": 0,
+    "tier": "Bronze",
+    "address": {
+      "street": "4521 Industrial Pkwy Unit 9",
+      "city": "Las Vegas",
+      "state": "NV",
+      "zip": "89101"
+    },
+    "order_history": [],
+    "notes": "Account created December 2024. No purchase history. No verified address on file."
   }
 }

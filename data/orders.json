@@ -23,5 +23,55 @@
     "customer_reported_issue": "Desk arrived with a cracked leg. Packaging appeared intact on delivery.",
     "tickets": ["T-8801", "T-8847"],
     "status": "Delivered — Disputed"
+  },
+  "MC-2024-97441": {
+    "order_id": "MC-2024-97441",
+    "customer_id": "C-10051",
+    "order_date": "2024-11-12",
+    "product": "Industrial Coffee Table — Dark Walnut",
+    "sku": "CT-2200-DW",
+    "quantity": 1,
+    "unit_price": 299.00,
+    "order_total": 299.00,
+    "payment_method": "Mastercard ending 3392",
+    "payment_status": "Paid in full",
+    "dispute_filed": false,
+    "fulfillment": {
+      "warehouse": "Denver",
+      "shipped_date": "2024-11-14",
+      "carrier": "Reliable Freight",
+      "tracking_number": "RF-2024-974411",
+      "delivery_date": "2024-11-18",
+      "delivery_note": "Delivered — customer signature obtained",
+      "damage_claimed_by_carrier": false
+    },
+    "customer_reported_issue": null,
+    "tickets": [],
+    "status": "Delivered — Satisfied"
+  },
+  "MC-2024-99103": {
+    "order_id": "MC-2024-99103",
+    "customer_id": "C-99999",
+    "order_date": "2024-12-08",
+    "product": "Standing Desk — Walnut Finish",
+    "sku": "MD-4821-WN",
+    "quantity": 1,
+    "unit_price": 389.00,
+    "order_total": 389.00,
+    "payment_method": "Visa ending 7741",
+    "payment_status": "Paid in full",
+    "dispute_filed": false,
+    "fulfillment": {
+      "warehouse": "Phoenix",
+      "shipped_date": "2024-12-10",
+      "carrier": "FastShip",
+      "tracking_number": "FS-2024-991031",
+      "delivery_date": "2024-12-13",
+      "delivery_note": "Signature waived — left at door",
+      "damage_claimed_by_carrier": false
+    },
+    "customer_reported_issue": "Desk arrived with a cracked leg.",
+    "tickets": [],
+    "status": "Delivered — Disputed"
   }
 }
