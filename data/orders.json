@@ -1,4 +1,54 @@
 {
+  "MC-2024-98801": {
+    "order_id": "MC-2024-98801",
+    "customer_id": "C-10038",
+    "order_date": "2024-12-03",
+    "product": "Standing Desk — Walnut Finish",
+    "sku": "MD-4821-WN",
+    "quantity": 1,
+    "unit_price": 389.00,
+    "order_total": 389.00,
+    "payment_method": "Visa ending 9921",
+    "payment_status": "Disputed — chargeback filed",
+    "dispute_filed": true,
+    "fulfillment": {
+      "warehouse": "Phoenix",
+      "shipped_date": "2024-12-05",
+      "carrier": "FastShip",
+      "tracking_number": "FS-2024-880141",
+      "delivery_date": "2024-12-08",
+      "delivery_note": "Signature waived — left at door",
+      "damage_claimed_by_carrier": false
+    },
+    "customer_reported_issue": "Standing desk arrived with cracked support leg. Packaging looked fine externally.",
+    "tickets": [],
+    "status": "Delivered — Lost. Chargeback filed. Two negative reviews posted."
+  },
+  "MC-2024-98809": {
+    "order_id": "MC-2024-98809",
+    "customer_id": "C-10039",
+    "order_date": "2024-12-05",
+    "product": "Standing Desk — Walnut Finish",
+    "sku": "MD-4821-WN",
+    "quantity": 1,
+    "unit_price": 389.00,
+    "order_total": 389.00,
+    "payment_method": "Mastercard ending 4401",
+    "payment_status": "Paid in full",
+    "dispute_filed": false,
+    "fulfillment": {
+      "warehouse": "Phoenix",
+      "shipped_date": "2024-12-07",
+      "carrier": "FastShip",
+      "tracking_number": "FS-2024-880921",
+      "delivery_date": "2024-12-11",
+      "delivery_note": "Signature waived — left at door",
+      "damage_claimed_by_carrier": false
+    },
+    "customer_reported_issue": "Desk leg cracked on arrival. Same issue a friend had with this product last week.",
+    "tickets": ["T-8831", "T-8851"],
+    "status": "Delivered — Disputed. Two open tickets. No response. Critical."
+  },
   "MC-2024-98821": {
     "order_id": "MC-2024-98821",
     "customer_id": "C-10042",
@@ -23,6 +73,56 @@
     "customer_reported_issue": "Desk arrived with a cracked leg. Packaging appeared intact on delivery.",
     "tickets": ["T-8801", "T-8847"],
     "status": "Delivered — Disputed"
+  },
+  "MC-2024-98834": {
+    "order_id": "MC-2024-98834",
+    "customer_id": "C-10044",
+    "order_date": "2024-12-07",
+    "product": "Standing Desk — Walnut Finish",
+    "sku": "MD-4821-WN",
+    "quantity": 1,
+    "unit_price": 389.00,
+    "order_total": 389.00,
+    "payment_method": "Visa ending 2871",
+    "payment_status": "Paid in full",
+    "dispute_filed": false,
+    "fulfillment": {
+      "warehouse": "Phoenix",
+      "shipped_date": "2024-12-09",
+      "carrier": "FastShip",
+      "tracking_number": "FS-2024-883441",
+      "delivery_date": "2024-12-13",
+      "delivery_note": "Signature waived — left at door",
+      "damage_claimed_by_carrier": false
+    },
+    "customer_reported_issue": "One of the desk legs arrived cracked. Otherwise the product looks fine.",
+    "tickets": ["T-8862"],
+    "status": "Delivered — Disputed. One open ticket. No response."
+  },
+  "MC-2024-98857": {
+    "order_id": "MC-2024-98857",
+    "customer_id": "C-10047",
+    "order_date": "2024-12-11",
+    "product": "Standing Desk — Walnut Finish",
+    "sku": "MD-4821-WN",
+    "quantity": 1,
+    "unit_price": 389.00,
+    "order_total": 389.00,
+    "payment_method": "Visa ending 6612",
+    "payment_status": "Paid in full",
+    "dispute_filed": false,
+    "fulfillment": {
+      "warehouse": "Phoenix",
+      "shipped_date": "2024-12-13",
+      "carrier": "FastShip",
+      "tracking_number": "FS-2024-885741",
+      "delivery_date": "2024-12-16",
+      "delivery_note": "In transit — estimated delivery 2024-12-16",
+      "damage_claimed_by_carrier": false
+    },
+    "customer_reported_issue": null,
+    "tickets": [],
+    "status": "In Transit — Pre-emptive risk. No complaint filed yet."
   },
   "MC-2024-97441": {
     "order_id": "MC-2024-97441",
