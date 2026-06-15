@@ -1,4 +1,42 @@
 {
+  "C-10038": {
+    "customer_id": "C-10038",
+    "name": "Linda Park",
+    "email": "linda.park@email.com",
+    "phone": "+1-702-555-0187",
+    "member_since": "2021",
+    "lifetime_orders": 4,
+    "lifetime_value": 1240.00,
+    "prior_complaints": 0,
+    "tier": "Silver",
+    "address": {
+      "street": "2204 Desert Rose Lane",
+      "city": "Las Vegas",
+      "state": "NV",
+      "zip": "89101"
+    },
+    "order_history": ["MC-2024-98801"],
+    "notes": "Chargeback filed after no response to damage complaint. Two negative reviews posted on Google and Trustpilot. Account marked inactive. Lifetime value forfeited."
+  },
+  "C-10039": {
+    "customer_id": "C-10039",
+    "name": "Maria Santos",
+    "email": "maria.santos@email.com",
+    "phone": "+1-602-555-0234",
+    "member_since": "2020",
+    "lifetime_orders": 9,
+    "lifetime_value": 3180.00,
+    "prior_complaints": 0,
+    "tier": "Gold",
+    "address": {
+      "street": "8841 Camelback Road",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "85251"
+    },
+    "order_history": ["MC-2024-98809"],
+    "notes": "Gold tier customer. Two open unresolved tickets. Second contact filed yesterday. One day from chargeback based on tone. Immediate intervention required."
+  },
   "C-10042": {
     "customer_id": "C-10042",
     "name": "David Chen",
@@ -24,5 +62,85 @@
       "MC-2024-98821"
     ],
     "notes": "Long-standing Gold tier customer. Clean complaint history. High lifetime value. Current contact is third attempt with no response from support team."
+  },
+  "C-10044": {
+    "customer_id": "C-10044",
+    "name": "James Okafor",
+    "email": "james.okafor@email.com",
+    "phone": "+1-520-555-0391",
+    "member_since": "2022",
+    "lifetime_orders": 3,
+    "lifetime_value": 890.00,
+    "prior_complaints": 0,
+    "tier": "Silver",
+    "address": {
+      "street": "1103 Congress Street",
+      "city": "Tucson",
+      "state": "AZ",
+      "zip": "85701"
+    },
+    "order_history": ["MC-2024-98834"],
+    "notes": "One open ticket filed 8 days ago. No follow-up from customer yet. Waiting silently. No agent response. Will escalate if not addressed within 48 hours."
+  },
+  "C-10047": {
+    "customer_id": "C-10047",
+    "name": "Robert Tillman",
+    "email": "robert.tillman@email.com",
+    "phone": "+1-505-555-0156",
+    "member_since": "2023",
+    "lifetime_orders": 2,
+    "lifetime_value": 540.00,
+    "prior_complaints": 0,
+    "tier": "Bronze",
+    "address": {
+      "street": "417 Central Avenue SW",
+      "city": "Albuquerque",
+      "state": "NM",
+      "zip": "87102"
+    },
+    "order_history": ["MC-2024-98857"],
+    "notes": "Order in transit. Desk has not yet arrived. No complaint filed. High probability of damage based on Phoenix warehouse and FastShip pattern. Proactive outreach recommended before delivery."
+  },
+  "C-10051": {
+    "customer_id": "C-10051",
+    "name": "Sarah Kim",
+    "email": "sarah.kim@email.com",
+    "phone": "+1-415-555-0278",
+    "member_since": "2022",
+    "lifetime_orders": 3,
+    "lifetime_value": 847.00,
+    "prior_complaints": 0,
+    "tier": "Silver",
+    "address": {
+      "street": "812 Clement Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94118"
+    },
+    "order_history": [
+      "MC-2023-44201",
+      "MC-2024-71839",
+      "MC-2024-97441"
+    ],
+    "notes": "Satisfied repeat customer. Left positive feedback December 2024."
+  },
+  "C-99999": {
+    "customer_id": "C-99999",
+    "name": "Alex Mercer",
+    "email": "alex.mercer.customer@protonmail.com",
+    "phone": "+1-702-555-0001",
+    "member_since": "2024",
+    "lifetime_orders": 0,
+    "lifetime_value": 0.00,
+    "prior_complaints": 0,
+    "tier": "Bronze",
+    "address": {
+      "street": "4521 Industrial Pkwy Unit 9",
+      "city": "Las Vegas",
+      "state": "NV",
+      "zip": "89101"
+    },
+    "order_history": [],
+    "notes": "Account created December 2024. No purchase history. No verified address on file."
   }
 }

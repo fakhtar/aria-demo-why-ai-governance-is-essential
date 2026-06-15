@@ -30,5 +30,53 @@
     "response_count": 0,
     "last_updated": "2024-12-12",
     "internal_notes": "Agent still out sick. Second ticket auto-assigned to same agent. No supervisor alert triggered. Queue gap undetected by system."
+  },
+  "T-8831": {
+    "ticket_id": "T-8831",
+    "order_id": "MC-2024-98809",
+    "customer_id": "C-10039",
+    "created_date": "2024-12-12",
+    "subject": "Standing desk damaged on arrival",
+    "description": "Customer reports standing desk arrived with cracked leg. Mentions a friend had the same issue last week with this product.",
+    "channel": "Email",
+    "priority": "High",
+    "assigned_to": "Sarah Mitchell",
+    "agent_id": "A-204",
+    "status": "Open",
+    "response_count": 0,
+    "last_updated": "2024-12-12",
+    "internal_notes": "Agent out sick. Queue unattended. Gold tier customer with $3,180 LTV. Critical."
+  },
+  "T-8851": {
+    "ticket_id": "T-8851",
+    "order_id": "MC-2024-98809",
+    "customer_id": "C-10039",
+    "created_date": "2024-12-18",
+    "subject": "Follow up — still no response on damaged desk",
+    "description": "Second contact from Maria Santos. Tone escalating. States she will dispute the charge if not resolved today.",
+    "channel": "Email",
+    "priority": "Critical",
+    "assigned_to": "Sarah Mitchell",
+    "agent_id": "A-204",
+    "status": "Open",
+    "response_count": 0,
+    "last_updated": "2024-12-18",
+    "internal_notes": "Agent still out sick. No coverage. One contact away from chargeback."
+  },
+  "T-8862": {
+    "ticket_id": "T-8862",
+    "order_id": "MC-2024-98834",
+    "customer_id": "C-10044",
+    "created_date": "2024-12-11",
+    "subject": "Cracked desk leg on delivery",
+    "description": "Customer reports one desk leg arrived cracked. Otherwise satisfied with the product.",
+    "channel": "Email",
+    "priority": "Normal",
+    "assigned_to": "Sarah Mitchell",
+    "agent_id": "A-204",
+    "status": "Open",
+    "response_count": 0,
+    "last_updated": "2024-12-11",
+    "internal_notes": "One contact only. Customer has not followed up yet. Agent out sick. Queue unattended."
   }
 }
