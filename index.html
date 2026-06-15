@@ -882,6 +882,8 @@ let conversationHistory = [];
 let activeTools = new Set([1, 2, 3]);
 let isLoading = false;
 let syntheticData = {};
+let resolutionExecuted = false;
+let resolutionActions = [];
 
 // ── SYNTHETIC DATA ─────────────────────────────────────────────────────
 async function loadData() {
@@ -1088,7 +1090,7 @@ function executeToolCall(toolName, toolInput) {
       if (toolInput.issue_credit && toolInput.issue_credit > 0) {
         const maxCredit = inventoryItem?.goodwill_credit_policy?.max_credit || 50;
         const credit = Math.min(toolInput.issue_credit, maxCredit);
-        actions.push(`✓ Store credit of $${credit} applied to account ${toolInput.customer_id}`);
+        actions.push(`Store credit of $${credit} applied to account ${customer.name} (${toolInput.customer_id})`);
         costs.push(`Credit: $${credit}`);
       }
 
@@ -1096,19 +1098,19 @@ function executeToolCall(toolName, toolInput) {
         const shippingOption = inventoryItem?.shipping_options?.[toolInput.send_replacement];
         const warehouse = "Denver";
         const days = shippingOption?.days || (toolInput.send_replacement === 'expedited' ? 2 : 7);
-        actions.push(`✓ Replacement order initiated — ${toolInput.send_replacement} shipping (${days} days) from ${warehouse} warehouse`);
+        actions.push(`Replacement order initiated — ${toolInput.send_replacement} shipping (${days} days) from ${warehouse} warehouse`);
         costs.push(`Replacement + shipping: $${inventoryItem?.unit_cost || 189} + $${shippingOption?.cost_to_meridian || 0}`);
       }
 
       if (toolInput.email_draft) {
-        actions.push(`✓ Resolution email sent to ${customer.email}`);
+        actions.push(`Resolution email sent to ${customer.email}`);
       }
 
       if (actions.length === 0) {
         return { success: false, error: "No resolution actions were specified." };
       }
 
-      return {
+      const result = {
         success: true,
         customer_name: customer.name,
         customer_email: customer.email,
@@ -1118,6 +1120,12 @@ function executeToolCall(toolName, toolInput) {
         email_sent: toolInput.email_draft ? toolInput.email_draft : null,
         confirmation: `Resolution complete for ${customer.name} (${toolInput.order_id}). ${actions.length} action(s) executed.`
       };
+
+      // Flag for resolution card rendering
+      resolutionExecuted = true;
+      resolutionActions = actions;
+
+      return result;
     }
 
     case 'query_damage_pattern': {
@@ -1387,12 +1395,11 @@ async function callClaude(userMessage) {
         conversationHistory.push({ role: 'assistant', content: data.content });
 
         if (textContent.trim()) {
-          // Check if this looks like a resolution confirmation
-          if (activeTools.has(3) &&
-              (textContent.toLowerCase().includes('credit') ||
-               textContent.toLowerCase().includes('replacement') ||
-               textContent.toLowerCase().includes('email sent'))) {
-            appendResolutionMessage(textContent);
+          // Check if execute_resolution tool succeeded
+          if (resolutionExecuted) {
+            appendResolutionMessage(textContent, resolutionActions);
+            resolutionExecuted = false;
+            resolutionActions = [];
           } else {
             appendMessage('assistant', textContent);
           }
@@ -1430,26 +1437,19 @@ function appendMessage(role, content) {
   scrollToBottom();
 }
 
-function appendResolutionMessage(content) {
+function appendResolutionMessage(content, actions) {
   hideEmptyState();
   const messages = document.getElementById('messages');
   const div = document.createElement('div');
   div.className = 'message assistant';
 
-  // Parse action lines
-  const lines = content.split('\n').filter(l => l.trim());
-  const actionLines = lines.filter(l =>
-    l.includes('credit') || l.includes('replacement') ||
-    l.includes('email') || l.includes('✓') || l.includes('sent')
-  );
-
-  const actionHTML = actionLines.length > 0
+  const actionHTML = actions && actions.length > 0
     ? `<div class="resolution-card">
         <div class="resolution-card-title">Resolution Executed</div>
-        ${actionLines.map(l => `
+        ${actions.map(a => `
           <div class="resolution-item">
             <span class="resolution-check">✓</span>
-            <span>${l.replace('✓', '').trim()}</span>
+            <span>${a}</span>
           </div>`).join('')}
        </div>`
     : '';
@@ -1511,11 +1511,68 @@ function appendSystemMessage(text) {
 }
 
 function formatMessage(text) {
-  return text
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/`(.*?)`/g, '<code style="font-family:\'Share Tech Mono\',monospace;font-size:0.8em;background:rgba(0,0,0,0.2);padding:1px 5px;border-radius:3px;">$1</code>')
-    .replace(/\n/g, '<br/>');
+  // Process markdown into HTML
+  let html = text;
+
+  // Escape HTML entities first (except we need to keep our substitutions)
+  // Process block elements first, then inline
+
+  // Horizontal rules
+  html = html.replace(/^---+$/gm, '<hr style="border:none;border-top:1px solid rgba(255,255,255,0.1);margin:0.75rem 0;">');
+
+  // Headers
+  html = html.replace(/^### (.+)$/gm, '<h3 style="font-family:'Cinzel',serif;font-size:0.85rem;font-weight:600;color:var(--gold-light);letter-spacing:0.06em;margin:0.75rem 0 0.35rem;">$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2 style="font-family:'Cinzel',serif;font-size:0.95rem;font-weight:600;color:var(--gold);letter-spacing:0.06em;margin:0.85rem 0 0.4rem;">$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1 style="font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin:1rem 0 0.5rem;">$1</h1>');
+
+  // Tables
+  html = html.replace(/\|(.+)\|/gm, function(match) {
+    const cells = match.split('|').filter((c, i, arr) => i > 0 && i < arr.length - 1);
+    const isSeparator = cells.every(c => /^[-:]+$/.test(c.trim()));
+    if (isSeparator) return '';
+    const tag = 'td';
+    const cellsHtml = cells.map(c =>
+      `<${tag} style="padding:0.3rem 0.6rem;border:1px solid rgba(255,255,255,0.08);font-size:0.8rem;">${c.trim()}</${tag}>`
+    ).join('');
+    return `<tr>${cellsHtml}</tr>`;
+  });
+  // Wrap consecutive <tr> blocks in a table
+  html = html.replace(/(<tr>.*?<\/tr>\n?)+/gs, function(match) {
+    return `<table style="border-collapse:collapse;width:100%;margin:0.5rem 0;">${match}</table>`;
+  });
+
+  // Bullet lists - collect consecutive bullet lines
+  html = html.replace(/(^[\-\*] .+$\n?)+/gm, function(match) {
+    const items = match.trim().split('\n').map(line =>
+      `<li style="margin:0.2rem 0;">${line.replace(/^[\-\*] /, '').trim()}</li>`
+    ).join('');
+    return `<ul style="padding-left:1.2rem;margin:0.4rem 0;list-style:disc;">${items}</ul>`;
+  });
+
+  // Numbered lists
+  html = html.replace(/(^\d+\. .+$\n?)+/gm, function(match) {
+    const items = match.trim().split('\n').map(line =>
+      `<li style="margin:0.2rem 0;">${line.replace(/^\d+\. /, '').trim()}</li>`
+    ).join('');
+    return `<ol style="padding-left:1.2rem;margin:0.4rem 0;">${items}</ol>`;
+  });
+
+  // Inline code blocks (multi-line)
+  html = html.replace(/```([\s\S]*?)```/g, function(match, code) {
+    return `<pre style="background:rgba(0,0,0,0.25);border-radius:6px;padding:0.6rem 0.8rem;font-family:'Share Tech Mono',monospace;font-size:0.75rem;overflow-x:auto;margin:0.5rem 0;white-space:pre-wrap;">${code.trim()}</pre>`;
+  });
+
+  // Inline elements
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong style="color:var(--gold-light);font-weight:600;">$1</strong>');
+  html = html.replace(/\*(.*?)\*/g, '<em style="color:var(--white-dim);">$1</em>');
+  html = html.replace(/`(.*?)`/g, '<code style="font-family:'Share Tech Mono',monospace;font-size:0.8em;background:rgba(0,0,0,0.2);padding:1px 5px;border-radius:3px;">$1</code>');
+
+  // Newlines — only convert remaining bare newlines (not inside block elements)
+  html = html.replace(/\n\n/g, '</p><p style="margin:0.4rem 0;">');
+  html = html.replace(/\n/g, '<br/>');
+  html = `<p style="margin:0;">${html}</p>`;
+
+  return html;
 }
 
 function scrollToBottom() {
