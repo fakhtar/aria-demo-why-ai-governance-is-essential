@@ -1694,68 +1694,62 @@ function appendSystemMessage(text) {
 }
 
 function formatMessage(text) {
-  // Process markdown into HTML
   let html = text;
-
-  // Escape HTML entities first (except we need to keep our substitutions)
-  // Process block elements first, then inline
 
   // Horizontal rules
   html = html.replace(/^---+$/gm, '<hr style="border:none;border-top:1px solid rgba(255,255,255,0.1);margin:0.75rem 0;">');
 
   // Headers
-  html = html.replace(/^### (.+)$/gm, '<h3 style="font-family:'Cinzel',serif;font-size:0.85rem;font-weight:600;color:var(--gold-light);letter-spacing:0.06em;margin:0.75rem 0 0.35rem;">$1</h3>');
-  html = html.replace(/^## (.+)$/gm, '<h2 style="font-family:'Cinzel',serif;font-size:0.95rem;font-weight:600;color:var(--gold);letter-spacing:0.06em;margin:0.85rem 0 0.4rem;">$1</h2>');
-  html = html.replace(/^# (.+)$/gm, '<h1 style="font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin:1rem 0 0.5rem;">$1</h1>');
+  html = html.replace(/^### (.+)$/gm, '<h3 style="font-family:Cinzel,serif;font-size:0.85rem;font-weight:600;color:var(--gold-light);letter-spacing:0.06em;margin:0.75rem 0 0.35rem;">$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2 style="font-family:Cinzel,serif;font-size:0.95rem;font-weight:600;color:var(--gold);letter-spacing:0.06em;margin:0.85rem 0 0.4rem;">$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1 style="font-family:Cinzel,serif;font-size:1.05rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin:1rem 0 0.5rem;">$1</h1>');
 
-  // Tables
+  // Tables — convert pipe rows to tr/td then wrap in table
   html = html.replace(/\|(.+)\|/gm, function(match) {
-    const cells = match.split('|').filter((c, i, arr) => i > 0 && i < arr.length - 1);
-    const isSeparator = cells.every(c => /^[-:]+$/.test(c.trim()));
-    if (isSeparator) return '';
-    const tag = 'td';
-    const cellsHtml = cells.map(c =>
-      `<${tag} style="padding:0.3rem 0.6rem;border:1px solid rgba(255,255,255,0.08);font-size:0.8rem;">${c.trim()}</${tag}>`
-    ).join('');
-    return `<tr>${cellsHtml}</tr>`;
+    const cells = match.split('|').filter(function(c, i, arr) { return i > 0 && i < arr.length - 1; });
+    const isSep = cells.every(function(c) { return /^[-:\s]+$/.test(c); });
+    if (isSep) return '';
+    const tds = cells.map(function(c) {
+      return '<td style="padding:0.3rem 0.6rem;border:1px solid rgba(255,255,255,0.08);font-size:0.8rem;">' + c.trim() + '</td>';
+    }).join('');
+    return '<tr>' + tds + '</tr>';
   });
-  // Wrap consecutive <tr> blocks in a table
-  html = html.replace(/(<tr>.*?<\/tr>\n?)+/gs, function(match) {
-    return `<table style="border-collapse:collapse;width:100%;margin:0.5rem 0;">${match}</table>`;
+  html = html.replace(/(<tr>[\s\S]*?<\/tr>\n?)+/g, function(match) {
+    return '<table style="border-collapse:collapse;width:100%;margin:0.5rem 0;">' + match + '</table>';
   });
 
-  // Bullet lists - collect consecutive bullet lines
-  html = html.replace(/(^[\-\*] .+$\n?)+/gm, function(match) {
-    const items = match.trim().split('\n').map(line =>
-      `<li style="margin:0.2rem 0;">${line.replace(/^[\-\*] /, '').trim()}</li>`
-    ).join('');
-    return `<ul style="padding-left:1.2rem;margin:0.4rem 0;list-style:disc;">${items}</ul>`;
+  // Bullet lists
+  html = html.replace(/(^[-*] .+$\n?)+/gm, function(match) {
+    const items = match.trim().split('\n').map(function(line) {
+      return '<li style="margin:0.2rem 0;">' + line.replace(/^[-*] /, '').trim() + '</li>';
+    }).join('');
+    return '<ul style="padding-left:1.2rem;margin:0.4rem 0;list-style:disc;">' + items + '</ul>';
   });
 
   // Numbered lists
   html = html.replace(/(^\d+\. .+$\n?)+/gm, function(match) {
-    const items = match.trim().split('\n').map(line =>
-      `<li style="margin:0.2rem 0;">${line.replace(/^\d+\. /, '').trim()}</li>`
-    ).join('');
-    return `<ol style="padding-left:1.2rem;margin:0.4rem 0;">${items}</ol>`;
+    const items = match.trim().split('\n').map(function(line) {
+      return '<li style="margin:0.2rem 0;">' + line.replace(/^\d+\. /, '').trim() + '</li>';
+    }).join('');
+    return '<ol style="padding-left:1.2rem;margin:0.4rem 0;">' + items + '</ol>';
   });
 
-  // Inline code blocks (multi-line)
+  // Fenced code blocks
   html = html.replace(/```([\s\S]*?)```/g, function(match, code) {
-    return `<pre style="background:rgba(0,0,0,0.25);border-radius:6px;padding:0.6rem 0.8rem;font-family:'Share Tech Mono',monospace;font-size:0.75rem;overflow-x:auto;margin:0.5rem 0;white-space:pre-wrap;">${code.trim()}</pre>`;
+    return '<pre style="background:rgba(0,0,0,0.25);border-radius:6px;padding:0.6rem 0.8rem;font-family:monospace;font-size:0.75rem;overflow-x:auto;margin:0.5rem 0;white-space:pre-wrap;">' + code.trim() + '</pre>';
   });
 
-  // Inline elements
+  // Inline bold and italic
   html = html.replace(/\*\*(.*?)\*\*/g, '<strong style="color:var(--gold-light);font-weight:600;">$1</strong>');
   html = html.replace(/\*(.*?)\*/g, '<em style="color:var(--white-dim);">$1</em>');
-  html = html.replace(/`(.*?)`/g, '<code style="font-family:'Share Tech Mono',monospace;font-size:0.8em;background:rgba(0,0,0,0.2);padding:1px 5px;border-radius:3px;">$1</code>');
 
-  // Newlines — only convert remaining bare newlines (not inside block elements)
+  // Inline code
+  html = html.replace(/`(.*?)`/g, '<code style="font-family:monospace;font-size:0.8em;background:rgba(0,0,0,0.2);padding:1px 5px;border-radius:3px;">$1</code>');
+
+  // Newlines
   html = html.replace(/\n\n/g, '</p><p style="margin:0.4rem 0;">');
   html = html.replace(/\n/g, '<br/>');
-  html = `<p style="margin:0;">${html}</p>`;
-
-  return html;
+  return '<p style="margin:0;">' + html + '</p>';
 }
 
 function scrollToBottom() {
